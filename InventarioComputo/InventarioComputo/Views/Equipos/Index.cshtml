@@ -1,0 +1,13 @@
+﻿<!--Agregaremos un arraylist para que recorrera todo el namespace-->
+@model List<InventarioComputo.Models.EquipoModel>  
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Equipos</h2>
+
+<!--Recorreremos los campos del namespace con un foreach para cada campo-->
+@foreach (var equipo in Model)
+{
+    <p>@equipo.Id @equipo.Descripcion</p>
+}
