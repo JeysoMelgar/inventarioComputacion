@@ -8,9 +8,41 @@
 
 <!--Recorreremos los campos del namespace con un foreach para cada campo-->
 <!--Crearemos una lista de tabla para el equipo-->
-@foreach (var equipo in Model)
-{
-    <table>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Precio
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Marca
+            </th>
+            <th>
+                Modelo
+            </th>
+            <th>
+                Serie
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Fecha
+            </th>
+        </tr>
+    </thead>
+    @foreach (var equipo in Model)
+    {
         <tr>
             <td>@equipo.Id</td>
             <td>@equipo.Descripcion</td>
@@ -22,7 +54,6 @@
             <td>@equipo.Estado</td>
             <td>@equipo.Fecha</td>
         </tr>
-    </table>
-
-}
+    }
+</table>
 
