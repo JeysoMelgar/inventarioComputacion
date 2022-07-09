@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexto.cs" />
     <Compile Include="Equipo.cs" />
     <Compile Include="EquipoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,6 +17,7 @@ namespace InventarioComputo.BL
         public string Serie { get; set; }
         public string Estado { get; set; }
         public string Fecha { get; set; }
+        
 
 
     }
