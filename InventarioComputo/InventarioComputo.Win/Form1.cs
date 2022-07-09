@@ -18,6 +18,7 @@ namespace InventarioComputo.Win
             InitializeComponent();
             var equiposBL = new EquiposBL();
             var listadeEquipos = equiposBL.ObtenerEquipos();
+            listadeEquiposBindingSource.DataSource = listadeEquipos;
         }
 
 

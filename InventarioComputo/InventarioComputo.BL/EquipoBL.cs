@@ -21,5 +21,11 @@ namespace InventarioComputo.BL
             ListadeEquipos = _contexto.Equipos.ToList();
             return ListadeEquipos;
         }
+
+        public void GuardarEquipo(Equipo equipo)
+        {
+            _contexto.Equipos.Add(equipo);
+            _contexto.SaveChanges();
+        }
     }
 }

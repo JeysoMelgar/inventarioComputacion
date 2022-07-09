@@ -90,7 +90,7 @@
             this.listadeEquiposBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listadeEquiposBindingNavigator.Name = "listadeEquiposBindingNavigator";
             this.listadeEquiposBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listadeEquiposBindingNavigator.Size = new System.Drawing.Size(770, 25);
+            this.listadeEquiposBindingNavigator.Size = new System.Drawing.Size(1030, 25);
             this.listadeEquiposBindingNavigator.TabIndex = 0;
             this.listadeEquiposBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -203,9 +203,9 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.listadeEquiposDataGridView.DataSource = this.listadeEquiposBindingSource;
-            this.listadeEquiposDataGridView.Location = new System.Drawing.Point(12, 28);
+            this.listadeEquiposDataGridView.Location = new System.Drawing.Point(25, 28);
             this.listadeEquiposDataGridView.Name = "listadeEquiposDataGridView";
-            this.listadeEquiposDataGridView.Size = new System.Drawing.Size(746, 338);
+            this.listadeEquiposDataGridView.Size = new System.Drawing.Size(950, 338);
             this.listadeEquiposDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -266,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 386);
+            this.ClientSize = new System.Drawing.Size(1030, 386);
             this.Controls.Add(this.listadeEquiposDataGridView);
             this.Controls.Add(this.listadeEquiposBindingNavigator);
             this.Name = "Form1";
