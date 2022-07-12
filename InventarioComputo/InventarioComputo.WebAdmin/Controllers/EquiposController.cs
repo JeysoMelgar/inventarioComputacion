@@ -17,11 +17,11 @@ namespace InventarioComputo.WebAdmin.Controllers
         // GET: Equipos
         public ActionResult Index()
         {
-            var listadeProductos = _equiposBL.ObtenerEquipos();
-            return View(listadeProductos);
+            var listadeEquipos = _equiposBL.ObtenerEquipos();
+            return View(listadeEquipos);
         }
 
-        public ActionResult Crear(){
+        public ActionResult Crear() {
             var nuevoEquipo = new Equipo();
             return View(nuevoEquipo);
         }
@@ -30,6 +30,39 @@ namespace InventarioComputo.WebAdmin.Controllers
 
         public ActionResult Crear(Equipo equipo) {
             _equiposBL.GuardarEquipo(equipo);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Editar(int id)
+        {
+            var producto = _equiposBL.ObtenerEquipo(id);
+
+            return View(producto);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Equipo equipo)
+        {
+            _equiposBL.GuardarEquipo(equipo);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Detalle(int id)
+        {
+            var equipo = _equiposBL.ObtenerEquipo(id);
+            return View(equipo);
+        }
+
+        public ActionResult Eliminar(int id)
+        {
+            var equipo = _equiposBL.ObtenerEquipo(id);
+            return View(equipo);
+        }
+
+        [HttpPost]
+        public ActionResult Eliminar(Equipo equipo)
+        {
+            _equiposBL.EliminarEquipo(equipo.Id);
             return RedirectToAction("Index");
         }
     }

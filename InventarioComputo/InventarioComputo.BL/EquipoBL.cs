@@ -24,7 +24,36 @@ namespace InventarioComputo.BL
 
         public void GuardarEquipo(Equipo equipo)
         {
-            _contexto.Equipos.Add(equipo);
+            if (equipo.Id == 0)
+            {
+                _contexto.Equipos.Add(equipo);
+            }
+            else
+            {
+                var equipoExistente = _contexto.Equipos.Find(equipo.Id);
+                equipoExistente.Descripcion = equipo.Descripcion;
+                equipoExistente.Precio = equipo.Precio;
+                equipoExistente.Categoria = equipo.Categoria;
+                equipoExistente.Marca = equipo.Marca;
+                equipoExistente.Modelo = equipo.Modelo;
+                equipoExistente.Serie = equipo.Serie;
+                equipoExistente.Estado = equipo.Estado;
+                equipoExistente.Fecha = equipo.Fecha;
+            }
+            
+            _contexto.SaveChanges();
+        }
+
+        public Equipo ObtenerEquipo(int id)
+        {
+            var equipo = _contexto.Equipos.Find(id);
+            return equipo;
+        }
+
+        public void EliminarEquipo(int id)
+        {
+            var equipo = _contexto.Equipos.Find(id);
+            _contexto.Equipos.Remove(equipo);
             _contexto.SaveChanges();
         }
     }

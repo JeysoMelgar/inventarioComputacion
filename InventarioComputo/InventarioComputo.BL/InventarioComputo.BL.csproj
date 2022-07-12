@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categoria.cs" />
+    <Compile Include="CategoriaBL.cs" />
     <Compile Include="Contexto.cs" />
     <Compile Include="Equipo.cs" />
     <Compile Include="EquipoBL.cs" />

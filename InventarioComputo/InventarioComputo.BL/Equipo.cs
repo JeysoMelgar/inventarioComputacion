@@ -11,7 +11,7 @@ namespace InventarioComputo.BL
         public int Id { get; set; }
         public string Descripcion { get; set; }
         public double Precio { get; set; }
-        public string Categoria { get; set; }
+        public Categoria Categoria { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string Serie { get; set; }

@@ -24,5 +24,6 @@ namespace InventarioComputo.BL
 
             //Se crea una tabla de datos
         public DbSet<Equipo> Equipos { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
     }
 }
