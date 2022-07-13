@@ -35,8 +35,21 @@ namespace InventarioComputo.WebAdmin.Controllers
         [HttpPost]  
 
         public ActionResult Crear(Equipo equipo) {
-            _equiposBL.GuardarEquipo(equipo);
-            return RedirectToAction("Index");
+
+            if (ModelState.IsValid)
+            {
+                if (equipo.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
+                    return View(equipo);
+                }
+                _equiposBL.GuardarEquipo(equipo);
+                return RedirectToAction("Index");
+            }
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.ListaCategoria = new SelectList(categorias, "Id", "Descripcion");
+            return View(equipo);
         }
 
         public ActionResult Editar(int id)
@@ -50,8 +63,20 @@ namespace InventarioComputo.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Editar(Equipo equipo)
         {
-            _equiposBL.GuardarEquipo(equipo);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (equipo.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
+                    return View(equipo);
+                }
+                _equiposBL.GuardarEquipo(equipo);
+                return RedirectToAction("Index");
+            }
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.ListaCategoria = new SelectList(categorias, "Id", "Descripcion");
+            return View(equipo);
         }
 
         public ActionResult Detalle(int id)

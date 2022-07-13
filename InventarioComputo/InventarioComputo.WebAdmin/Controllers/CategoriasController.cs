@@ -29,42 +29,60 @@ namespace InventarioComputo.WebAdmin.Controllers
 
         [HttpPost]
 
-        public ActionResult Crear(Categoria equipo)
+        public ActionResult Crear(Categoria categoria)
         {
-            _categoriasBL.GuardarCategoria(equipo);
+            if (ModelState.IsValid)
+            {
+                if (categoria.Descripcion !=categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion", "La descripcion no debe contener espacios vacios al inicio o al final.");
+                    return View(categoria);
+                }
+            _categoriasBL.GuardarCategoria(categoria);
             return RedirectToAction("Index");
+            }
+            return View(categoria);
         }
 
         public ActionResult Editar(int id)
         {
-            var equipo = _categoriasBL.ObtenerCategoria(id);
+            var categoria = _categoriasBL.ObtenerCategoria(id);
 
-            return View(equipo);
+            return View(categoria);
         }
 
         [HttpPost]
-        public ActionResult Editar(Categoria equipo)
+        public ActionResult Editar(Categoria categoria)
         {
-            _categoriasBL.GuardarCategoria(equipo);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion", "La descripcion no debe contener espacios vacios al inicio o al final.");
+                    return View(categoria);
+                }
+                _categoriasBL.GuardarCategoria(categoria);
+                return RedirectToAction("Index");
+            }
+            return View(categoria);
         }
 
         public ActionResult Detalle(int id)
         {
-            var equipo = _categoriasBL.ObtenerCategoria(id);
-            return View(equipo);
+            var categoria = _categoriasBL.ObtenerCategoria(id);
+            return View(categoria);
         }
 
         public ActionResult Eliminar(int id)
         {
-            var equipo = _categoriasBL.ObtenerCategoria(id);
-            return View(equipo);
+            var categoria = _categoriasBL.ObtenerCategoria(id);
+            return View(categoria);
         }
 
         [HttpPost]
-        public ActionResult Eliminar(Categoria equipo)
+        public ActionResult Eliminar(Categoria categoria)
         {
-            _categoriasBL.EliminarCategoria(equipo.Id);
+            _categoriasBL.EliminarCategoria(categoria.Id);
             return RedirectToAction("Index");
         }
     }

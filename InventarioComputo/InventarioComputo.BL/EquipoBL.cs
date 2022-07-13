@@ -51,7 +51,7 @@ namespace InventarioComputo.BL
 
         public Equipo ObtenerEquipo(int id)
         {
-            var equipo = _contexto.Equipos.Find(id);
+            var equipo = _contexto.Equipos.Include("Categoria").FirstOrDefault(p => p.Id == id);
             return equipo;
         }
 
