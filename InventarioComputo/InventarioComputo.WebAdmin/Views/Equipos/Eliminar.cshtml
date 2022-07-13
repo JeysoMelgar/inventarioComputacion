@@ -8,7 +8,7 @@
 
 <h3>Equipo</h3>
 <div>
-    <h4>¿Esta seguro de que desea eliminar esto?</h4>
+    <h4>¿Esta seguro de que desea eliminar este campo?</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,11 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Categoria)
+            @Html.DisplayNameFor(model => model.Categoria.Descripcion)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Categoria)
+            @Html.DisplayFor(model => model.Categoria.Descripcion)
         </dd>
 
         <dt>
@@ -74,7 +74,13 @@
         <dd>
             @Html.DisplayFor(model => model.Fecha)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {

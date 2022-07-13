@@ -17,8 +17,11 @@ namespace InventarioComputo.BL
             ListadeEquipos = new List<Equipo>();
         }
         public List<Equipo> ObtenerEquipos()
-        {
-            ListadeEquipos = _contexto.Equipos.ToList();
+        {   
+            //Generamos una consulta en la base de datos  con include haciendo un inner join
+            ListadeEquipos = _contexto.Equipos
+                .Include("Categoria")
+                .ToList();
             return ListadeEquipos;
         }
 
@@ -33,12 +36,14 @@ namespace InventarioComputo.BL
                 var equipoExistente = _contexto.Equipos.Find(equipo.Id);
                 equipoExistente.Descripcion = equipo.Descripcion;
                 equipoExistente.Precio = equipo.Precio;
+                equipoExistente.CategoriaId = equipo.CategoriaId;
                 equipoExistente.Categoria = equipo.Categoria;
                 equipoExistente.Marca = equipo.Marca;
                 equipoExistente.Modelo = equipo.Modelo;
                 equipoExistente.Serie = equipo.Serie;
                 equipoExistente.Estado = equipo.Estado;
                 equipoExistente.Fecha = equipo.Fecha;
+                equipoExistente.Activo = equipo.Activo;
             }
             
             _contexto.SaveChanges();

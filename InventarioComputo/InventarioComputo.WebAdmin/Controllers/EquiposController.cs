@@ -10,9 +10,11 @@ namespace InventarioComputo.WebAdmin.Controllers
     public class EquiposController : Controller
     {
         EquiposBL _equiposBL;
+        CategoriaBL _categoriasBL;
         public EquiposController()
         {
             _equiposBL = new EquiposBL();
+            _categoriasBL = new CategoriaBL();
         }
         // GET: Equipos
         public ActionResult Index()
@@ -21,12 +23,16 @@ namespace InventarioComputo.WebAdmin.Controllers
             return View(listadeEquipos);
         }
 
-        public ActionResult Crear() {
+        public ActionResult Crear()
+        {
             var nuevoEquipo = new Equipo();
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.ListaCategoria = new SelectList(categorias, "Id", "Descripcion");
             return View(nuevoEquipo);
         }
 
-        [HttpPost]
+        [HttpPost]  
 
         public ActionResult Crear(Equipo equipo) {
             _equiposBL.GuardarEquipo(equipo);
@@ -35,9 +41,10 @@ namespace InventarioComputo.WebAdmin.Controllers
 
         public ActionResult Editar(int id)
         {
-            var producto = _equiposBL.ObtenerEquipo(id);
-
-            return View(producto);
+            var equipo = _equiposBL.ObtenerEquipo(id);
+            var categorias = _categoriasBL.ObtenerCategorias();
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", equipo.CategoriaId);
+            return View(equipo);
         }
 
         [HttpPost]

@@ -29,42 +29,42 @@ namespace InventarioComputo.WebAdmin.Controllers
 
         [HttpPost]
 
-        public ActionResult Crear(Categoria categoria)
+        public ActionResult Crear(Categoria equipo)
         {
-            _categoriasBL.GuardarCategoria(categoria);
+            _categoriasBL.GuardarCategoria(equipo);
             return RedirectToAction("Index");
         }
 
         public ActionResult Editar(int id)
         {
-            var producto = _categoriasBL.ObtenerCategoria(id);
+            var equipo = _categoriasBL.ObtenerCategoria(id);
 
-            return View(producto);
+            return View(equipo);
         }
 
         [HttpPost]
-        public ActionResult Editar(Categoria categoria)
+        public ActionResult Editar(Categoria equipo)
         {
-            _categoriasBL.GuardarCategoria(categoria);
+            _categoriasBL.GuardarCategoria(equipo);
             return RedirectToAction("Index");
         }
 
         public ActionResult Detalle(int id)
         {
-            var categoria = _categoriasBL.ObtenerCategoria(id);
-            return View(categoria);
+            var equipo = _categoriasBL.ObtenerCategoria(id);
+            return View(equipo);
         }
 
         public ActionResult Eliminar(int id)
         {
-            var categoria = _categoriasBL.ObtenerCategoria(id);
-            return View(categoria);
+            var equipo = _categoriasBL.ObtenerCategoria(id);
+            return View(equipo);
         }
 
         [HttpPost]
-        public ActionResult Eliminar(Categoria categoria)
+        public ActionResult Eliminar(Categoria equipo)
         {
-            _categoriasBL.EliminarCategoria(categoria.Id);
+            _categoriasBL.EliminarCategoria(equipo.Id);
             return RedirectToAction("Index");
         }
     }
