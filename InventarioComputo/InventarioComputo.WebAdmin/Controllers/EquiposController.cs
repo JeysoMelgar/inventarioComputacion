@@ -34,7 +34,7 @@ namespace InventarioComputo.WebAdmin.Controllers
 
         [HttpPost]  
 
-        public ActionResult Crear(Equipo equipo) {
+        public ActionResult Crear(Equipo equipo, HttpPostedFileBase imagen) {
 
             if (ModelState.IsValid)
             {
@@ -43,6 +43,12 @@ namespace InventarioComputo.WebAdmin.Controllers
                     ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
                     return View(equipo);
                 }
+
+                if (imagen != null)
+                {
+                    equipo.UrlImagen = GuardarImagen(imagen);
+                }
+               
                 _equiposBL.GuardarEquipo(equipo);
                 return RedirectToAction("Index");
             }
@@ -97,5 +103,13 @@ namespace InventarioComputo.WebAdmin.Controllers
             _equiposBL.EliminarEquipo(equipo.Id);
             return RedirectToAction("Index");
         }
+
+        private string GuardarImagen(HttpPostedFileBase imagen)
+        {
+            string path = Server.MapPath("~/Imagenes/" + imagen.FileName);
+            imagen.SaveAs(path);
+            return "/Imagenes/" + imagen.FileName;
+        }
+
     }
 }

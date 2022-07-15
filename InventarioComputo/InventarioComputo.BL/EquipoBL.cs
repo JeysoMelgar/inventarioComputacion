@@ -43,6 +43,7 @@ namespace InventarioComputo.BL
                 equipoExistente.Serie = equipo.Serie;
                 equipoExistente.Estado = equipo.Estado;
                 equipoExistente.Fecha = equipo.Fecha;
+                equipoExistente.UrlImagen = equipo.UrlImagen;
                 equipoExistente.Activo = equipo.Activo;
             }
             

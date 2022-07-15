@@ -14,6 +14,7 @@ namespace InventarioComputo.BL
         }
         /*Validacion de requerimientos y campos publicos de la clase Equipo*/
         public int Id { get; set; }
+        [Display(Name = "Descripcion")]
         [Required(ErrorMessage ="Ingrese la Descripcion")]
         [MinLength(5,ErrorMessage = "Ingrese minimo 5 caracteres")]
         [MaxLength(20,ErrorMessage = "Ingrese un maximo de 20 caracteres")]
@@ -49,10 +50,12 @@ namespace InventarioComputo.BL
         [MaxLength(20, ErrorMessage = "Ingrese un maximo de 20 caracteres")]
         public string Estado { get; set; }
 
-        [Required(ErrorMessage = "Ingrese la fecha")]
-        [MinLength(8, ErrorMessage = "Ingrese minimo 10 caracteres")]
-        [MaxLength(20, ErrorMessage = "Ingrese un maximo de 20 caracteres")]
-        public string Fecha { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de ingreso")]
+        public System.DateTime Fecha { get; set; }
+
+        [Display(Name ="Imagen")]
+        public string UrlImagen { get; set; }
 
         public bool Activo { get; set; }
 

@@ -5,8 +5,8 @@
 }
 
 <h2>Crear</h2>
-
-@using (Html.BeginForm()) 
+<!--En este apartado ingresaremos crear , los equipos controller, el posteo y una nueva encriptacion para guardar los archivos-->
+@using (Html.BeginForm("Crear" , "Equipos", FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
@@ -29,7 +29,7 @@
             @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
         </div>
     </div>
-    <!--NOTA: NO REMOVER POR NINGUN MOTIVO ESTE CAMPO CategoriaID-->  
+    <!--NOTA: NO REMOVER POR NINGUN MOTIVO ESTE CAMPO "CategoriaID"-->  
     <div class="form-group">
         @Html.LabelFor(model => model.CategoriaId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -84,6 +84,13 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <!--Agregamos un nuevo campo de div con la clase de Imagen en el index de Crear-->
+    <div class="form-group" >
+        <label class="control-label col-md-2">Seleccionar Imagen</label>
+        <div class="col-md-10">
+            <input type="file" name="imagen" id="imagen"/>
         </div>
     </div>
 
