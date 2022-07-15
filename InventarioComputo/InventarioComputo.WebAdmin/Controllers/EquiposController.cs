@@ -67,7 +67,7 @@ namespace InventarioComputo.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Equipo equipo)
+        public ActionResult Editar(Equipo equipo, HttpPostedFileBase imagen)
         {
             if (ModelState.IsValid)
             {
@@ -75,6 +75,10 @@ namespace InventarioComputo.WebAdmin.Controllers
                 {
                     ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
                     return View(equipo);
+                }
+                if (imagen != null)
+                {
+                    equipo.UrlImagen = GuardarImagen(imagen);
                 }
                 _equiposBL.GuardarEquipo(equipo);
                 return RedirectToAction("Index");
