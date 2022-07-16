@@ -1,0 +1,70 @@
+﻿@model IEnumerable<InventarioComputo.BL.Usuarios>
+
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo usuario", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Equipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Equipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiempodeUso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaAsignacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Equipo.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Equipo.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiempodeUso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaAsignacion)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Activo)
+        </td>
+
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+            @Html.ActionLink("Detalle", "Detalle", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

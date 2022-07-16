@@ -17,13 +17,15 @@ namespace InventarioComputo.BL
         {
 
         }
+        // protegemos la sobreescritura y evitamos la pluralizacion de las tablas
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-            //Se crea una tabla de datos
+            //Se crea una tabla de datos de cada campo
         public DbSet<Equipo> Equipos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet <Usuarios> Usuarios { get; set; }
     }
 }

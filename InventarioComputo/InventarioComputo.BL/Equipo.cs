@@ -25,7 +25,7 @@ namespace InventarioComputo.BL
         public double Precio { get; set; }
 
         [Required(ErrorMessage = "Ingrese la CategoriaId")]
-        [Range(1, 1000, ErrorMessage = "Ingrese una CategoriaId entre 1 y 1000")]
+        [Range(1, 999, ErrorMessage = "Ingrese una CategoriaId entre 1 y 1000")]
         public int CategoriaId { get; set; }
 
         public Categoria Categoria { get; set; }
@@ -52,7 +52,7 @@ namespace InventarioComputo.BL
 
         [DataType(DataType.Date)]
         [Display(Name = "Fecha de ingreso")]
-        public System.DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; }
 
         [Display(Name ="Imagen")]
         public string UrlImagen { get; set; }

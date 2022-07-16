@@ -18,7 +18,7 @@ namespace InventarioComputo.BL
         }
         public List<Equipo> ObtenerEquipos()
         {   
-            //Generamos una consulta en la base de datos  con include haciendo un inner join
+            //Generamos una consulta en la base de datos con include haciendo un inner join
             ListadeEquipos = _contexto.Equipos
                 .Include("Categoria")
                 .ToList();

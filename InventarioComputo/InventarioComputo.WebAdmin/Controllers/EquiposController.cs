@@ -28,7 +28,7 @@ namespace InventarioComputo.WebAdmin.Controllers
             var nuevoEquipo = new Equipo();
             var categorias = _categoriasBL.ObtenerCategorias();
 
-            ViewBag.ListaCategoria = new SelectList(categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
             return View(nuevoEquipo);
         }
 
@@ -54,7 +54,7 @@ namespace InventarioComputo.WebAdmin.Controllers
             }
             var categorias = _categoriasBL.ObtenerCategorias();
 
-            ViewBag.ListaCategoria = new SelectList(categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
             return View(equipo);
         }
 
@@ -85,7 +85,7 @@ namespace InventarioComputo.WebAdmin.Controllers
             }
             var categorias = _categoriasBL.ObtenerCategorias();
 
-            ViewBag.ListaCategoria = new SelectList(categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
             return View(equipo);
         }
 

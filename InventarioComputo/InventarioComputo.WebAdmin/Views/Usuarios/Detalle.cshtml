@@ -1,0 +1,66 @@
+﻿@model InventarioComputo.BL.Usuarios
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Usuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TiempodeUso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TiempodeUso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAsignacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAsignacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>
