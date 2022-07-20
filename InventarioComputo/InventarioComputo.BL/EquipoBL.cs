@@ -21,6 +21,20 @@ namespace InventarioComputo.BL
             //Generamos una consulta en la base de datos con include haciendo un inner join
             ListadeEquipos = _contexto.Equipos
                 .Include("Categoria")
+                .OrderBy(r => r.Categoria.Descripcion)
+                .ThenBy(r => r.Descripcion)
+                .ToList();
+            return ListadeEquipos;
+        }
+
+        public List<Equipo> ObtenerEquiposActivos()
+        {
+            //Generamos una consulta en la base de datos con include haciendo un inner join
+            //Utilizando ademas el filtrado para todos los equipos
+            ListadeEquipos = _contexto.Equipos
+                .Include("Categoria")
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Descripcion)
                 .ToList();
             return ListadeEquipos;
         }
@@ -49,7 +63,7 @@ namespace InventarioComputo.BL
             
             _contexto.SaveChanges();
         }
-
+        //Relacion oor medio de LinQ
         public Equipo ObtenerEquipo(int id)
         {
             var equipo = _contexto.Equipos.Include("Categoria").FirstOrDefault(p => p.Id == id);

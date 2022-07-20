@@ -20,6 +20,17 @@ namespace InventarioComputo.BL
         {
             ListadeUsuarios = _contexto.Usuarios
             .Include("Equipo")
+            .OrderBy(r => r.Responsable)
+            .ToList();
+            return ListadeUsuarios;
+        }
+
+        public List<Usuarios> ObtenerUsuariosActivos()
+        {
+            ListadeUsuarios = _contexto.Usuarios
+            .Include("Equipo")
+            .Where(r => r.Activo == true)
+            .OrderBy(r => r.Responsable)
             .ToList();
             return ListadeUsuarios;
         }

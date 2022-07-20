@@ -19,6 +19,7 @@ namespace InventarioComputo.WebAdmin.Controllers
         // GET: Equipos
         public ActionResult Index()
         {
+            
             var listadeEquipos = _equiposBL.ObtenerEquipos();
             return View(listadeEquipos);
         }
